@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:websocket="http://www.springframework.org/schema/websocket"  
+    xsi:schemaLocation="http://www.springframework.org/schema/websocket    
+                        http://www.springframework.org/schema/websocket/spring-websocket.xsd    
+                        http://www.springframework.org/schema/beans   
+                        http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+        
+        <websocket:handlers>
+        <websocket:mapping handler="marcoHandler" path="/marco"/>
+<!--         <websocket:sockjs/> -->
+        </websocket:handlers> 
+   
+   	<bean id="marcoHandler" class="com.huiy.ssm.demo.websocket.MarcoHandler">
+   	
+   	</bean>
+     
+</beans>  

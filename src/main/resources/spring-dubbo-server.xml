@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://code.alibabatech.com/schema/dubbo 
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+   
+       <!-- 提供方应用消息 -->
+       
+       <dubbo:application name="ssmdemo"/>
+       
+        <!-- 使用zookeeper注册中心暴露服务 -->
+       <dubbo:registry id="test" address="${dubbo.registry.addressL}" group="dubbo" register="true"></dubbo:registry>
+       
+       <dubbo:registry id="dev" address="${dubbo.registry.address}" group="dev" register="true"></dubbo:registry>
+
+       
+       <!-- Zookeeper集群配置 -->
+<!--   <dubbo:registry protocol="zookeeper" address=",," /> -->
+        
+       <!-- 用dubbo协议在20880端口暴露服务 服务提供者协议、服务的监听端口-->
+       <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}"/>
+       
+       <!--服务接口没有继承java.rmi.Remote接口.将不生成$Remote接口，而使用Spring的RmiInvocationHandler接口暴露服务，和Spring兼容 -->
+       <dubbo:protocol name="rmi" codec="spring"/>
+       
+       <dubbo:service  group="userService1" interface="com.huiy.ssm.demo.usert.service.UserTService" ref="userService" protocol="dubbo,rmi" registry="dev"></dubbo:service>
+       
+</beans>  

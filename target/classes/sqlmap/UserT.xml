@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="UserT">
+
+
+<!-- 请不要在公共mapping文件内加入自己写的方法，应放到XXXX_C_Custom.xml�?!!!!! -->
+<resultMap id="UserTPO" type="com.huiy.ssm.demo.persist.po.UserTPO" >
+    <result column="AGE" property="age" />
+    <result column="ID" property="id" />
+    <result column="PASSWORD" property="password" />
+    <result column="USER_NAME" property="userName" />
+</resultMap>
+        <select id="query" parameterType="com.huiy.ssm.demo.persist.po.UserTPO" resultMap="UserTPO">
+            <![CDATA[
+                select AGE,ID,PASSWORD,USER_NAME
+                from user_t
+            ]]>
+            WHERE 1 = 1 
+<if test="age != null and age != '' "> and AGE = #{age}</if>
+<if test="id != null and id != '' "> and ID = #{id}</if>
+<if test="password != null and password != '' "> and PASSWORD = #{password}</if>
+<if test="userName != null and userName != '' "> and USER_NAME = #{userName}</if>
+        </select>
+        
+        <select id="queryList" parameterType="com.huiy.ssm.demo.persist.po.UserTPO" resultMap="UserTPO">
+            <![CDATA[
+                select AGE,ID,PASSWORD,USER_NAME
+                from user_t
+            ]]>
+            WHERE 1 = 1 
+<if test="age != null and age != '' "> and AGE = #{age}</if>
+<if test="id != null and id != '' "> and ID = #{id}</if>
+<if test="password != null and password != '' "> and PASSWORD = #{password}</if>
+<if test="userName != null and userName != '' "> and USER_NAME = #{userName}</if>
+ ORDER BY ID
+        </select>    
+        <select id="queryPage" parameterType="com.huiy.ssm.demo.persist.po.UserTPO" resultMap="UserTPO">
+            <![CDATA[
+                select AGE,ID,PASSWORD,USER_NAME
+                from user_t
+            ]]>
+            WHERE 1 = 1 
+<if test="age != null and age != '' "> and AGE = #{age}</if>
+<if test="id != null and id != '' "> and ID = #{id}</if>
+<if test="password != null and password != '' "> and PASSWORD = #{password}</if>
+<if test="userName != null and userName != '' "> and USER_NAME = #{userName}</if>
+ ORDER BY ID
+        </select>
+        <insert id="insert" parameterType="com.huiy.ssm.demo.persist.po.UserTPO">
+                insert into user_t(
+                     ID
+                
+<if test="age != null and age != '' "> ,AGE</if>
+<if test="password != null and password != '' "> ,PASSWORD</if>
+<if test="userName != null and userName != '' "> ,USER_NAME</if>
+ )               values (
+                     #{id:CHAR}
+                
+<if test="age != null and age != '' "> ,#{age:INTEGER}</if>
+<if test="password != null and password != '' "> ,#{password:VARCHAR}</if>
+<if test="userName != null and userName != '' "> ,#{userName:VARCHAR}</if>
+                 )
+    </insert>
+        <update id="update" parameterType="com.huiy.ssm.demo.persist.po.UserTPO">
+           <![CDATA[ update user_t set ID = #{id:CHAR}]]>
+                <if test="age != null and age != '' "> ,AGE = #{age:INTEGER}</if>
+                 
+                <if test="password != null and password != '' "> ,PASSWORD = #{password:VARCHAR}</if>
+                 
+                <if test="userName != null and userName != '' "> ,USER_NAME = #{userName:VARCHAR}</if>
+                 
+                <![CDATA[ 
+                where ID = #{id}
+]]>
+             </update>
+        <delete id="delete"  parameterType="com.huiy.ssm.demo.persist.po.UserTPO">
+           <![CDATA[
+                delete from user_t
+                where ID = #{id}
+               ]]>
+                </delete>
+                
+                
+         <select id="queryCount" parameterType="int" resultType="int">
+            <![CDATA[
+                select count(*) 
+                from user_t where age = #{age}
+            ]]>
+        </select>
+</mapper>

@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/github/miemiedev/mybatis/paginator=UTF-8
+encoding//src/main/java/com/huiy/ssm/demo/cache/UService.java=UTF-8
+encoding//src/main/java/com/huiy/ssm/demo/front/service=UTF-8
+encoding//src/main/java/com/huiy/ssm/demo/usert=UTF-8
+encoding//src/main/java/com/huiy/ssm/frame/persist/generate/DBJavaGenerator.java=UTF-8
+encoding//src/main/java/com/huiy/ssm/frame/persist/generate/DBXmlGenerator.java=UTF-8
+encoding//src/main/resources/spring-dubbo-client.xml=UTF-8
+encoding//src/main/resources/spring-mybatis.xml=UTF-8
+encoding//src/test/java/com/huiy/ssm/XmemcachedClientTest/TestXmemcached.java=UTF-8
+encoding//src/test/java/com/huiy/ssm/testspringmybatis/TestMyBatis.java=UTF-8
+encoding/<project>=UTF-8
+encoding/pom.xml=UTF-8
