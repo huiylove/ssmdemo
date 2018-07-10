@@ -3,7 +3,6 @@ package com.huiy.ssm.demo.persist.dao.impl;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import com.huiy.ssm.demo.persist.dao.UserTDao;
 import com.huiy.ssm.demo.persist.po.UserTPO;

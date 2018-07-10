@@ -19,7 +19,11 @@
                         http://www.springframework.org/schema/cache/spring-cache.xsd"> 
                         
     <!-- 自动扫描 -->  
-    <context:component-scan base-package="com.huiy.ssm" />  
+    <context:component-scan base-package="com.huiy.ssm">
+      <context:exclude-filter expression="org.springframework.stereotype.Controller"    type="annotation" /> 
+     </context:component-scan>
+ 
+<!--     <context:component-scan base-package="com.huiy.ssm" />   -->
    
     <!-- 引入配置文件 -->  
 <!--     <context:property-placeholder location="classpath:jdbc.properties" /> -->
@@ -98,7 +102,7 @@
     <!-- AOP配置事务-->
 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="query*"  propagation="REQUIRED" />
+			<tx:method name="query*"  propagation="REQUIRED" isolation="REPEATABLE_READ"/>
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="insert*" propagation="REQUIRED" />
