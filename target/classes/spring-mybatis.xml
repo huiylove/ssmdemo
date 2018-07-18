@@ -20,10 +20,10 @@
                         
     <!-- 自动扫描 -->  
     <context:component-scan base-package="com.huiy.ssm">
-      <context:exclude-filter expression="org.springframework.stereotype.Controller"    type="annotation" /> 
+      <context:exclude-filter expression="org.springframework.stereotype.Controller"   type="annotation" /> 
      </context:component-scan>
  
-<!--     <context:component-scan base-package="com.huiy.ssm" />   -->
+<!--<context:component-scan base-package="com.huiy.ssm" />   -->
    
     <!-- 引入配置文件 -->  
 <!--     <context:property-placeholder location="classpath:jdbc.properties" /> -->
@@ -85,11 +85,6 @@
 			</list>
 		</property>
     </bean>  
-    
-<!--     <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
-<!-- 		<property name="basePackage" value="com.fuiou.mysql.mapper" /> -->
-<!-- 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
-<!-- 	</bean> -->
 
     
     <!-- 使用JDBC事物(事务管理)transaction manager, use JtaTransactionManager for global tx -->  

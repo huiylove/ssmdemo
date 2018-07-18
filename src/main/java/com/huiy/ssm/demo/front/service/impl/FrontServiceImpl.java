@@ -119,6 +119,7 @@ public class FrontServiceImpl implements FrontService{
 		HttpResponse response = null;
 		try {
 			response = getHttpClient().execute(post);
+			
 			String resStr = null;
 			if(HttpStatus.SC_OK == response.getStatusLine().getStatusCode()){
 				HttpEntity entity = response.getEntity();
